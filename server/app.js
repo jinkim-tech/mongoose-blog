@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const dotenv = require('dotenv').config();
 
-mongoose.connect('mongodb://localhost/my-blog', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://${process.env.USER}:${process.env.PW}@ds033469.mlab.com:33469/heroku_s0xsg8q1', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
 const app = express();
