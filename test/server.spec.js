@@ -5,7 +5,7 @@ const server = require('../server/app');
 chai.use(chaiHttp);
 const expect = chai.expect;
 
-server.listen(4444);
+server.listen(8080);
 
 describe('server/app.js', function() {
   this.timeout(5000);
@@ -26,25 +26,5 @@ describe('server/app.js', function() {
         expect(res).to.have.status(200);
         done();
       });
-  });
-
-  it('page says hello world', (done) => {
-  chai.request(server)
-    .get('/')
-    .end((err, res) => {
-      expect(err).not.exist;
-      expect(JSON.stringify(res.text)).to.contain('Hello World');
-      done();
-    });  
-  });
-
-  it('page says Youre serving up the public folder, but do your tests pass?', (done) => {
-  chai.request(server)
-    .get('/')
-    .end((err, res) => {
-      expect(err).not.exist;
-      expect(JSON.stringify(res.text)).to.contain('Youre serving up the public folder, but do your tests pass?');
-      done();
-    });  
   });
 })
